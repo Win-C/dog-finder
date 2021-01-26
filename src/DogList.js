@@ -1,3 +1,8 @@
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
+
+// import DogDetails from "./DogDetails";
 
 /** Rendering of the DogList component. 
  *  
@@ -5,27 +10,27 @@
  * */
 
 function DogList({ dogs }) {
-  const dog = dogs.map(dog => (
+  
+  const dogsArray = dogs.map(dog => (
     <div className="DogList-Dog">
+
       <h3> {dog.name} </h3>
-      <img
-        src={dog.src + '.jpg'}
-        alt={dog.name} />
+      <Link to={`/dogs/${dog.name}`}>
+        <img
+          src={dog.src}
+          alt={dog.name} />
+      </Link>
       <div>
         <p>Age: {dog.age}</p>
-        <ul>Facts:
-            {dog.facts.map(f => (
-              <li>{f}</li>
-            ))}
-        </ul>
       </div>
     </div>
   ));
 
+
   return (
     <div className="DogList-Container">
       <h1>Dogs</h1>
-      {dog}
+      {dogsArray}
     </div>
   );
 }

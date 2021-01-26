@@ -7,6 +7,11 @@ import {
   useParams
 } from "react-router-dom";
 
+import whiskey from "./whiskey.jpg";
+import tubby from "./tubby.jpg";
+import perry from "./perry.jpg";
+import duke from "./duke.jpg";
+
 import Nav from "./Nav";
 import DogList from "./DogList";
 import DogDetails from "./DogDetails";
@@ -24,7 +29,8 @@ function App({ dogs }) {
             <DogList dogs={dogs} />
           </Route>
           <Route path="/dogs/:name">
-            <DogDetails dog={name} />
+            
+            <DogDetails dog={dogs.filter(d => d.name === { name })} />
           </Route>
           <Redirect to="/dogs" />
         </Switch>

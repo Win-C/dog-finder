@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 /** Rendering of the Nav component. 
  * 
