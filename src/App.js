@@ -3,8 +3,7 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Redirect,
-  useParams
+  Redirect
 } from "react-router-dom";
 
 import whiskey from "./whiskey.jpg";
@@ -19,7 +18,7 @@ import DogDetails from "./DogDetails";
 /** App -> { Nav, DogList, DogDetails } */
 
 function App({ dogs }) {
-  const { name } = useParams();
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -29,8 +28,7 @@ function App({ dogs }) {
             <DogList dogs={dogs} />
           </Route>
           <Route path="/dogs/:name">
-            
-            <DogDetails dog={dogs.filter(d => d.name === { name })} />
+            <DogDetails dogs={dogs}/>
           </Route>
           <Redirect to="/dogs" />
         </Switch>
